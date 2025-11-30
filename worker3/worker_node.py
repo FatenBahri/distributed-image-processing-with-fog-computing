@@ -1,6 +1,7 @@
 from flask import Flask, request
 import cv2
 import os
+import time
 
 app = Flask(__name__)
 
@@ -13,6 +14,8 @@ os.makedirs(processed_dir, exist_ok=True)
 
 @app.route('/process', methods=['POST'])
 def process_image():
+    start_time = time.time()  # début du chronomètre pour cette image
+
     # Recevoir l'image
     file = request.files['image']
     filename = file.filename
@@ -29,8 +32,12 @@ def process_image():
     output_filename = "processed_" + filename
     output_path = os.path.join(processed_dir, output_filename)
     cv2.imwrite(output_path, gray)
-    
-    return output_filename
+
+    end_time = time.time()  # fin du chronomètre
+    elapsed = end_time - start_time
+
+    # Retourner le nom du fichier et le temps de traitement
+    return f"{output_filename} (temps de traitement : {elapsed:.2f} secondes)"
 
 if __name__ == '__main__':
     import sys
