@@ -3,12 +3,12 @@ import os
 import time # pour mesurer le temps
 # Liste des nœuds simples (IP + port)
 simple_nodes = [
-   # "http://172.25.45.246:5000/process",  # IP de la  worker 1 sous Linux wsl
-    #"http://172.25.45.246:5001/process",  # IP de la  worker 2 sous Linux wsl
+  "http://172.25.45.246:5000/process",  # IP de la  worker 1 sous Linux wsl
+    "http://172.25.45.246:5002/process",  # IP de la  worker 2 sous Linux wsl
     #"http://172.25.45.246:5003/process"  # IP de la  worker 3 sous Linux wsl
-    "http://10.26.14.233:5000/process" ,
-    "http://10.26.14.116:5000/process" ,
-    "http://10.26.13.73:5000/process" 
+   # "http://10.26.14.233:5000/process" ,
+    #"http://10.26.14.116:5000/process" ,
+    #"http://10.26.13.73:5000/process" 
 
 
 
